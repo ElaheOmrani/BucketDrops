@@ -11,6 +11,11 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 
+import com.example.elahe.bucketdrops.beans.Drop;
+
+import io.realm.Realm;
+
+
 /**
  * Created by Elahe on 8/14/2017.
  */
@@ -42,6 +47,22 @@ public class DialogAdd extends DialogFragment {
     private void addAction() {
         String what=mInputWhat.getText().toString();
         long now =System.currentTimeMillis();
+
+
+//        RealmConfiguration configuration=new RealmConfiguration.Builder(getActivity()).build();
+//        Realm.setDefaultConfiguration(configuration);
+//        Realm realm = Realm.getDefaultInstance();
+       Drop drop =new Drop(what,now,0,false);
+//        realm.beginTransaction();
+//        realm.copyToRealm(drop);
+//        realm.commitTransaction();
+//        realm.close();
+        Realm.init(getActivity());
+        Realm realm = Realm.getDefaultInstance();
+        realm.beginTransaction();
+        final Drop managedDog = realm.copyToRealm(drop); // Persist unmanaged objects
+        realm.commitTransaction();
+
     }
 
     @Nullable
