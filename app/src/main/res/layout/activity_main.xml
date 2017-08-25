@@ -14,13 +14,13 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/toolbar"
         android:scaleType="fitXY"/>
-    <android.support.v7.widget.RecyclerView
+
+<include android:id="@+id/empty_drops" layout="@layout/empty_drops"/>
+    <com.example.elahe.bucketdrops.widgets.BucketRecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/rv_drop"
         android:layout_below="@+id/toolbar"/>
-<include layout="@layout/empty_drops"/>
-
 
 
 </RelativeLayout>

@@ -57,7 +57,6 @@ public class DialogAdd extends DialogFragment {
 //        realm.copyToRealm(drop);
 //        realm.commitTransaction();
 //        realm.close();
-        Realm.init(getActivity());
         Realm realm = Realm.getDefaultInstance();
         realm.beginTransaction();
         final Drop managedDog = realm.copyToRealm(drop); // Persist unmanaged objects
